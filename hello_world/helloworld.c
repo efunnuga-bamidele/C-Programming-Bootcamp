@@ -5,5 +5,6 @@
 int main(void) {
     printf("Hello World!\n");
     printf("My name is bamidele efunnuga\n");
-    return 0;
+    // return 0;
+    return EXIT_SUCCESS;
 }
