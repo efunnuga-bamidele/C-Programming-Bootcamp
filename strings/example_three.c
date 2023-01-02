@@ -37,6 +37,13 @@ int main()
     printf("Before copy: \"%s\"\n", my_string);
     printf("After copy using (STRNCPY): \"%s\"\n", strncpy(my_string, another_long_string, sizeof(another_long_string))); 
 
+    //String Compare :strcmp, strncmp
+    char str_1[] = "abcd";
+    char str_2[] = "abcdaaaaaa";
+
+    printf("(STRCMP) %s, %s: %d\n", str_1, str_2, strcmp(str_1, str_2));
+    printf("(STRNCMP) %s, %s: %d\n", str_1, str_2, strncmp(str_1, str_2, 3)); //compare only specified number of characters
+
 
 
     printf("\n\n=== ByteGarage ===\n\n");
