@@ -33,6 +33,29 @@ void print_occurances(char str[], int occurances_index[], int found)
     printf("%s\n", str);
     printf("%s\n", pattern);
 }
+/* returns  -1 if sub isn't in str Or */
+int find_substring(char str[], char sub[])
+{
+    char *psub = strstr(str, sub);
+    return psub ? psub - str : -1;
+}
+
+void print_substring(char str[], char sub[], int index)
+{
+    printf("Find substring \"%s\":\n", sub);
+    printf("%s\n", str);
+    if (index >= 0)
+    {
+        for (int i =0; i < index; i++)
+        {
+            printf(" ");
+        }
+        for (int i = 0; i < strlen(sub); i++)
+        {
+            printf("-");
+        }
+    }
+}
 
 int main()
 {
@@ -44,6 +67,10 @@ int main()
     int found = find_all_occurances(str, 'i', occurances_indexes);
 
     print_occurances(str, occurances_indexes, found);
+
+    char substring[] = "ing";
+    int index = find_substring(str, substring);
+    print_substring(str, substring, index);
 
     printf("\n\n=== ByteGarage ===\n\n");
     return EXIT_SUCCESS;
