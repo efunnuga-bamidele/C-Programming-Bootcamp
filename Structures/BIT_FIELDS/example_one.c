@@ -18,6 +18,16 @@ typedef struct LedStatusBitfields
 
 } LedStatusBitfields;
 
+typedef struct BleHeader
+{
+    uint16_t pdu_type : 4;
+    uint16_t rfu_1 : 2;
+    uint16_t tx_add : 1;
+    uint16_t rx_add : 1;
+    uint16_t length : 6;
+    uint16_t rfu_2 : 2;
+
+} BleHeader;
 
 void print_bits(uint8_t *data, int size)
 {
@@ -51,7 +61,17 @@ int main()
 
     status.led_1 = 0;
     status.led_2 = 0;
+
     print_bits((uint8_t *) &status, sizeof(status));
+
+    BleHeader header = {
+        .pdu_type = 3, /* 0 - 15*/
+        .tx_add = 1, 
+        .length = 7, 
+
+    };
+
+    print_bits((uint8_t *) &header, sizeof(header));
 
 
     printf("\n\n=== ByteGarage ===\n\n");
