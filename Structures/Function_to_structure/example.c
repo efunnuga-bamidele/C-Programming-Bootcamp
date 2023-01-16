@@ -53,6 +53,15 @@ Guy *alloc_elon(){
     return elon;
 }
 
+void deactivate_guy(Guy g){
+    g.active = false;
+}
+
+void deactivate_guy_pointer(Guy *pg){
+    pg->active = false;
+    // pg->active = pg->active ? false : true;
+}
+
 int main(){
     printf("\n\n=== Structure and Functions ===\n\n");
 
@@ -60,6 +69,8 @@ int main(){
     // Guy elon = create_elon();
     bill.friend = alloc_elon();
 
+    deactivate_guy(bill);
+    deactivate_guy_pointer(&bill);
 
     printf("\n\n=== ByteGarage ===\n\n");
     return EXIT_SUCCESS;
